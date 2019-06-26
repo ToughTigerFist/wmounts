@@ -4,7 +4,7 @@ const express = require('express'),
     mongoose = require('mongoose');
 
     const app = express();
-    let port = process.env.PORT || 4000;
+    const port = process.env.PORT || 3000;
 
     const server = app.listen(function(){
         console.log('Listening on port ' + port);
