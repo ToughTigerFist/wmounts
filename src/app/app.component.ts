@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {BnetService} from './bnet.service'
 
 @Component({
   selector: 'app-root',
@@ -9,14 +8,9 @@ import {BnetService} from './bnet.service'
 
 export class AppComponent {
 
-  constructor(private bnet: BnetService){}
+  constructor(){}
 
   title = 'wmounts';
   
-  
-  getMounts() {
-    this.bnet.authorizeApp()
-  }
-
 
 }
