@@ -17,8 +17,9 @@ mountRoutes.route("/addOne").post(function(req, res) {
       res.status(400).send("unable to save");
     });
 });
+
 // TODO Fix batch update
-mountRoutes.route("/updateMongoCollection").post(function(req, res) {
+mountRoutes.route("/updateMountCollection").post(function(req, res) {
     req.body.forEach(mount => {
         
         let name = mount["name"];

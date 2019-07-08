@@ -8,6 +8,7 @@ const express = require('express'),
     router = express.Router();
 
     const mountsRoute = require('./src/routes/mounts.route')
+    const accountsRoute = require('./src/routes/account.route')
     mongoose.Promise = global.Promise;
     mongoose.connect(config.DB, { useNewUrlParser: true }).then(
       () => {console.log('Database is connected') },
@@ -19,6 +20,7 @@ const express = require('express'),
     app.use(bodyParser.json({ limit: '50mb' }));
     app.use(bodyParser.urlencoded({ limit: '50mb', extended: true, parameterLimit: 50000 }));
     app.use('/mounts', mountsRoute)
+    app.use('/account', accountsRoute)
 
 
     const port = process.env.PORT || 3000;

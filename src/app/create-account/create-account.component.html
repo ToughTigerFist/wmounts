@@ -1,0 +1,9 @@
+<div>
+    <form [formGroup]="createAccountForm">
+        <input type="text" name="email" placeholder="email" formControlName="email" #email>
+        <br />
+        <input type="password" name="pwd" placeholder="password" formControlName="password" #password>
+        <br />
+        <input type="submit" value="submit" (click)="onClickSubmit(email.value, password.value)">
+    </form>
+</div>
