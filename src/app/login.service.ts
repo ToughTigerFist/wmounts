@@ -11,15 +11,29 @@ export class LoginService {
 
   uri = "http://localhost:3000/account";
 
-  register(email, pass) {
+  async register(email, pass1, pass2) {
+    if (pass1 != pass2) {
+      return "Passwords must match"
+    }
+    let payload = {
+      username: email,
+      password: pass1
+    }
+    let res = await this.http.post(`${this.uri}/register`, payload).toPromise()
+    return res
+
+  }
+
+  login(email, pass) {
     let payload = {
       username: email,
       password: pass
     }
-    console.log(email + pass)
-    this.http.post(`${this.uri}/register`, payload).subscribe(res => {
+    this.http.post(`${this.uri}/login`, payload).subscribe(res => {
       console.log(res)
     })
+
+
   }
 
 

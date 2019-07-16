@@ -1,0 +1,27 @@
+<div>
+    <form *ngIf="!collected" [formGroup]="characterSearchForm">
+        <input type="text" name="character" placeholder="Character" formControlName="character" #character>
+        <br />
+        <input type="realm" name="realm" placeholder="Realm" formControlName="realm" #realm>
+        <br />
+        <input name="submit" type="button" class="btn btn-primary" value="submit" [disabled]="!characterSearchForm.valid"
+            (click)="onClickSubmit(character.value, realm.value)">
+        <div *ngIf="warning" class="alert alert-danger" role="alert">
+            {{warning}}
+        </div>
+        <div *ngIf="success" class="alert alert-success" role="alert">
+            {{success}}
+        </div>
+    </form>
+    <div class="row card-deck">
+        <div *ngFor="let c of collected | paginate: { itemsPerPage: 25, currentPage: p }" class="col-2">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{c.name}}</h5>
+                    <p class="card-text">{{c}}</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

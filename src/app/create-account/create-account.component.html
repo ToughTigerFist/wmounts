@@ -1,9 +1,17 @@
 <div>
     <form [formGroup]="createAccountForm">
-        <input type="text" name="email" placeholder="email" formControlName="email" #email>
+        <input type="text" name="email" placeholder="Email" formControlName="email" #email>
         <br />
-        <input type="password" name="pwd" placeholder="password" formControlName="password" #password>
+        <input type="password" name="pwd" placeholder="Password" formControlName="password" #password>
         <br />
-        <input type="submit" value="submit" (click)="onClickSubmit(email.value, password.value)">
+        <input type="password" name="pwd2" placeholder="Confirm Password" formControlName="password2" #password2>
+        <br />
+        <input type="button" class="btn btn-primary" value="submit" [disabled]="!createAccountForm.valid" (click)="onClickSubmit(email.value, password.value,password2.value)">
+        <div *ngIf="warning" class="alert alert-danger" role="alert">
+            {{warning}}
+        </div>
+        <div *ngIf="success" class="alert alert-success" role="alert">
+            {{success}}
+        </div>
     </form>
 </div>

@@ -17,3 +17,21 @@ let Mount = new Schema({
 });
 
 module.exports = mongoose.model('Mount', Mount);
+
+/*
+mounts collection for refreshes to mounts for now
+mounts_d for tags/src/etc
+
+mounts_d schema
+name: could key off mounts,
+creatureId: key off mounts,
+qualityID: maybe????, most mounts are of epic quality now,
+tags: [class,] <-important,
+source: string,
+expansion: int
+
+
+
+
+
+*/
